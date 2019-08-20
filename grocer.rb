@@ -14,11 +14,9 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons) 
-  
   coupons.each do |coupon| 
     coupon.each do |item_name, info| 
       food = coupon[:item] 
-    
       while cart[food] && cart[food][:count] >= coupon[:num] 
       count = cart["#{food} W/COUPON"] ? cart["#{food} W/COUPON"][:count] : 0 
           cart["#{food} W/COUPON"] = {:price => (coupon[:cost] / coupon[:num]) ,
